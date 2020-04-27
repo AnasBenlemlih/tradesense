@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'TradeSense + ikram ',
+              'TradeSense + ikram + anas ',
             ),
             Text(
               '$_counter',
