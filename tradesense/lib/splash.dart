@@ -33,7 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
         fit:  StackFit.expand,
         children: <Widget>[
           Container(
-            //decoration: BoxDecoration(color: Color.fromRGBO(0, 154, 157, 1.0)),
             decoration: BoxDecoration(color: Color.fromRGBO(67, 90, 177, 1.0)),
           ),
           Column(
@@ -49,7 +48,6 @@ class _SplashScreenState extends State<SplashScreen> {
                         width: 300,
                         child:  Image.asset('assets/first_logo.png',width: 1000,height: 100,),
                         duration: Duration(seconds: 3),
-
                       )
                     ],
                   ),
