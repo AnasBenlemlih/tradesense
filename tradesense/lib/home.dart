@@ -9,8 +9,8 @@ class HomeScreen extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-       elevation: 0,
-       backgroundColor: Color.fromRGBO(67, 90, 177, 1.0),
+        elevation: 0,
+        backgroundColor: Color.fromRGBO(67, 90, 177, 1.0),
         title: Text('TradeSense'),
       ),
       drawer: Drawer(
@@ -39,7 +39,13 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('TradeSense',style: TextStyle(color: Colors.white,fontSize: 20.0,),),
+                        child: Text(
+                          'TradeSense',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                          ),
+                        ),
                       )
                     ],
                   ),
@@ -78,5 +84,3 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
     );
   }
 }
-
-
