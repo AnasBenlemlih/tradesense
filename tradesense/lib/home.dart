@@ -9,7 +9,8 @@ class HomeScreen extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(67, 90, 177, 1.0),
+       elevation: 0,
+       backgroundColor: Color.fromRGBO(67, 90, 177, 1.0),
         title: Text('TradeSense'),
       ),
       drawer: Drawer(
