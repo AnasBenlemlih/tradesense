@@ -32,8 +32,27 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
       children: <Widget>[
         ClipPath(
           clipper: CustomShapeClipper() ,
-           child: Container(height: 450.0, color: Color.fromRGBO(67, 90, 177, 1.0),
-          )
+           child: Container(height: 470.0, color: Color.fromRGBO(67, 90, 177, 1.0),
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 70,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                       image: AssetImage('assets/logo.png'),
+                ),
+              )
+              ),
+              Container(
+               child: Text(
+                 'Recherche d informations des Produit',
+                 textAlign: TextAlign.center,
+                 style: TextStyle(color: Colors.white),
+               ),
+              )
+            ],
+          ),
+           )
         )
       ],
     );
