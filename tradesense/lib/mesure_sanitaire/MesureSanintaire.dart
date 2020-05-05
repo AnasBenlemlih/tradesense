@@ -1,10 +1,11 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:tradesense/mesure_sanitaire/MesureSanintaire.dart';
+import 'package:tradesense/CustomListTitle.dart';
 
-import 'CustomShapeClipper.dart';
-import 'CustomListTitle.dart';
+import 'package:tradesense/CustomShapeClipper.dart';
 
-class HomeScreen extends StatelessWidget {
+class MesureSanitaire extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color.fromRGBO(67, 90, 177, 1.0),
-        title: Text('TradeSense'),
+        title: Text('MesureSanitaire'),
       ),
       drawer: Drawer(
         child: ListView(
@@ -40,19 +41,13 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'TradeSense',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                          ),
-                        ),
+                        child: Text('TradeSense',style: TextStyle(color: Colors.white,fontSize: 20.0,),),
                       )
                     ],
                   ),
                 )),
-                CustomListTitle(Icons.home, 'Accueil', ()=>{}),
-            CustomListTitle(Icons.healing, 'Mesure Sanitaire', () {
+            CustomListTitle(Icons.home, 'Accueil', () => {}),
+             CustomListTitle(Icons.healing, 'Mesure Sanitaire', () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => MesureSanitaire()),
@@ -65,18 +60,18 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Column(
-        children: <Widget>[HomeScreenTopPart()],
+        children: <Widget>[MesureSanitaireScreenTopPart()],
       ),
     );
   }
 }
 
-class HomeScreenTopPart extends StatefulWidget {
+class MesureSanitaireScreenTopPart extends StatefulWidget {
   @override
-  _HomeScreenTopPartState createState() => _HomeScreenTopPartState();
+  _MesureSanitaireScreenTopPartState createState() => _MesureSanitaireScreenTopPartState();
 }
 
-class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
+class _MesureSanitaireScreenTopPartState extends State<MesureSanitaireScreenTopPart> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -91,3 +86,5 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
     );
   }
 }
+
+
