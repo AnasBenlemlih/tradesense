@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:tradesense/home.dart';
+import 'package:tradesense/acceuil/acceuil.dart';
 import 'package:flutter/material.dart';
 void splash() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   route(){
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) =>  HomeScreen()
+        builder: (context) =>  AcceuilScreen()
     ));
   }
   @override

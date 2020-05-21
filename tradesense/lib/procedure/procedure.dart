@@ -4,7 +4,7 @@ import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
 import 'package:tradesense/widget/my_header.dart';
 
-class MesureSanitaire extends StatelessWidget {
+class Procedure extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -17,17 +17,17 @@ class MesureSanitaire extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      home: MesureSanitaireScreen(),
+      home: ProcedureScreen(),
     );
   }
 }
 
-class MesureSanitaireScreen extends StatefulWidget {
+class ProcedureScreen extends StatefulWidget {
   @override
-  _MesureSanitaireScreenState createState() => _MesureSanitaireScreenState();
+  _ProcedureScreenState createState() => _ProcedureScreenState();
 }
 
-class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
+class _ProcedureScreenState extends State<ProcedureScreen> {
   final controller = ScrollController();
   double offset = 0;
 
@@ -57,12 +57,12 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
         child: Column(
           children: <Widget>[
             MyHeader(
-              image: "assets/images/aid.png",
-              textTop: "MESURES \nSANITAIRES \nET \nPHYTOSANITAIRES",
+              image: "assets/icons/proc.svg",
+              textTop: "\nRÉFÉRENTIEL\nDES\nPROCÉDURES",
               textBottom: "",
               offset: offset,
-              color1: 0xFF36C12C,
-              color2: 0xFF000000,
+              color1: 0xFFFF8748,
+              color2: 0xFFFF4848,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
@@ -74,14 +74,14 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
                     child: SvgPicture.asset(
                       "assets/icons/search2.svg",
                       width: 30.0,
-                      color: Colors.green,
+                      color: Colors.deepOrangeAccent,
                     ),
                   ),
                   Text("Affichage de tout les éléments",
                       style: kTitleTextstyle),
                   SizedBox(height: 10),
                   ProcPreventCard(
-                    title: "FOURNIR LA FACTURE DÛEMENT VISEE",
+                    title: "CONTRÔLE À L’IMPORTATION DES PRODUITS INDUSTRIELS",
                     partiesCons: "Pays les moins avancés d'afrique",
                   ),
                   ProcPreventCard(
