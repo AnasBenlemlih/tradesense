@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tradesense/menu/menu.dart';
+import 'package:tradesense/rechercheProduit/ListeRechercheProduit.dart';
 import 'shCodeDialog.dart';
 
 import 'package:tradesense/CustomShapeClipper.dart';
@@ -238,10 +240,19 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
                       SizedBox(width: 30.0),
                       Expanded(
                         child: Container(
+                          
                           height: 50.0,
                           child: RaisedButton(
                             elevation: 5.0,
-                            onPressed: () => print('recherche Button Pressed'),
+                            
+                            onPressed: () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ListeRechercheProduit()),
+                            );
+                          
+                          },
                             padding: EdgeInsets.all(15.0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50.0),

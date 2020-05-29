@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tradesense/CustomListTitle.dart';
 import 'package:tradesense/acceuil/topPartHome.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
