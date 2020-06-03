@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
+import 'package:tradesense/widget/RechercheScreen.dart';
 import 'package:tradesense/widget/my_header.dart';
 
 class MesureSanitaire extends StatelessWidget {
@@ -48,6 +49,12 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
       offset = (controller.hasClients) ? controller.offset : 0;
     });
   }
+    final paysValues = ['pays 1', 'pays 2', 'pays 3'];
+    final regimeValues = ['IMPORT', 'EXPORT'];
+    final etablisValues = ['Département de la santé (Direction du Médicament et de la Pharmacie)',
+    'INSPECTEUR DES VEGETAUX AU POSTE FRONTIERE',
+    'MINISTERE DE LA SANTE',
+    'PAYS D\'EXPEDITION'];
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +78,39 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
                 children: <Widget>[
                   Align(
                     alignment: Alignment.topRight,
-                    child: SvgPicture.asset(
+                    child: RaisedButton(
+                      elevation: 0.0,
+                      child:SvgPicture.asset(
                       "assets/icons/search2.svg",
                       width: 30.0,
-                      color: Colors.green,
+                      color: Colors.blueGrey,
+                      
+                    ), 
+                    onPressed: () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>RechercheScreen(
+                                    titre: "Accès au référentiel de mesures sanitaires et phytosanitaires",
+                                    themeColor: Color.fromRGBO(44, 159, 36, 1.0),
+                                    rechercheHintText: "Chercher une mesures sanitaires et phytosanitaires",
+                                    hintTextLeft: "Pays",
+                                    textFieldLeftValues: paysValues,
+                                     hintTextRight: "Régime",
+                                    textFieldRightValues: regimeValues,
+                                    hintTextBottom: "Établissement",
+                                    textFieldBottomValues: etablisValues,
+                                    textFieldBottomIsShown: true,
+                        // j'ai donnée le numéro 2 pour le screen des mesures sanitaires (aléatoirement)
+                                    previousScreen: 2,
+                                  )
+                                  ),
+                            );
+                          
+                          },
+                          color: Colors.white,
                     ),
+                    
                   ),
                   Text("Affichage de tout les éléments",
                       style: kTitleTextstyle),
