@@ -259,6 +259,8 @@ class ProcPreventCard extends StatelessWidget {
   final String dsignature;
   final String dentre;
   final String partiesCons;
+  final Function onTap;
+
   const ProcPreventCard({
     Key key,
     this.image,
@@ -267,15 +269,18 @@ class ProcPreventCard extends StatelessWidget {
     this.dentre,
     this.dsignature,
     this.partiesCons,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
+      
       padding: const EdgeInsets.only(bottom: 0),
       child: SizedBox(
         height: 146,
         child: Stack(
+          
           alignment: Alignment.centerLeft,
           children: <Widget>[
             Container(
@@ -317,6 +322,7 @@ class ProcPreventCard extends StatelessWidget {
                       child: SvgPicture.asset(
                         "assets/icons/forward.svg",
                         color: Colors.orange,
+                        
                       ),
                     ),
                   ],

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tradesense/constant.dart';
-import 'package:tradesense/rechercheProduit/ResultSelected.dart';
+import 'package:tradesense/procedure/DetailsProc.dart';
 import 'package:tradesense/widget/HeaderListeRecherche.dart';
 
-class ListeRechercheProduit extends StatelessWidget {
+class ResultSelected extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -16,19 +16,17 @@ class ListeRechercheProduit extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      home: ListeRechercheProduitScreen(),
+      home: ResultSelectedScreen(),
     );
   }
 }
 
-class ListeRechercheProduitScreen extends StatefulWidget {
+class ResultSelectedScreen extends StatefulWidget {
   @override
-  _ListeRechercheProduitScreenState createState() =>
-      _ListeRechercheProduitScreenState();
+  _ResultSelectedScreenState createState() => _ResultSelectedScreenState();
 }
 
-class _ListeRechercheProduitScreenState
-    extends State<ListeRechercheProduitScreen> {
+class _ResultSelectedScreenState extends State<ResultSelectedScreen> {
   final controller = ScrollController();
   double offset = 0;
 
@@ -58,9 +56,7 @@ class _ListeRechercheProduitScreenState
         child: Column(
           children: <Widget>[
             HeaderListeRecherche(
-              regime: "IMPORT",
-              pays: "AFRIQUE DU SUD ",
-              produit: "ORANGE - 25178569",
+              regime: "procédure",
               offset: offset,
               color1: 0xFF36C12C,
               color2: 0xFF000000,
@@ -71,41 +67,25 @@ class _ListeRechercheProduitScreenState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   ListTile(
-                    title: Text('Accords commerciaux'),
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                   
-                  ),
-                  ListTile(
-                    title: Text('Procédures'),
+                    title: Text(
+                        'Procédure pour devenir un opérateur économique agréé'),
                     trailing: Icon(Icons.keyboard_arrow_right),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ResultSelected()),
+                            builder: (context) => DetailsProc(
+                                  titre:
+                                      "PROCÉDURE POUR DEVENIR UN OPÉRATEUR ÉCONOMIQUE AGRÉÉ",
+                                  regime: "IMPORT",
+                                  zone: "MAROC",
+                                  desc:
+                                      "Le statut d'OEA vise à « labéliser » les entreprises sûres et fiables qui présentent d’indéniables garanties en matière de transparence, de solidité financière et de sécurité en vue de leur offrir un package d’avantages dans leurs relations avec l’administration douanière.",
+                                  etablisement: "Merci de consulter les étapes pour voir les établissements correspondants",
+                                  
+                                )),
                       );
                     },
-                  ),
-                  ListTile(
-                    title: Text('Mesures sanitaires et phytosanitaires'),
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ResultSelected()),
-                      );
-                    },
-                  ),
-                   ListTile(
-                    title: Text('Barrières techniques'),
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                   
-                  ),
-                   ListTile(
-                    title: Text('Tarif douanier'),
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                   
                   ),
                 ],
               ),
