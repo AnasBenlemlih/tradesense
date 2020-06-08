@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tradesense/acceuil/topPartHome.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
-import 'package:tradesense/mesure_sanitaire/MesureSanintaire.dart';
+import 'package:tradesense/mesure_sanitaire/MesureSanitaire.dart';
 import 'package:tradesense/accords/accords.dart';
 import 'package:tradesense/procedure/procedure.dart';
 
@@ -70,7 +70,7 @@ class _AcceuilScreenState extends State<AcceuilScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        SymptomCard(
+                        OptionCard(
                           image: "assets/images/icon1.png",
                           title: "Accords\ncommerciaux",
                           onTap: () {
@@ -81,7 +81,7 @@ class _AcceuilScreenState extends State<AcceuilScreen> {
                             );
                           },
                         ),
-                        SymptomCard(
+                        OptionCard(
                           image: "assets/images/icon3.png",
                           title: "Mesures sanitaires\net phytosanitaires",
                           onTap: () {
@@ -92,7 +92,7 @@ class _AcceuilScreenState extends State<AcceuilScreen> {
                             );
                           },
                         ),
-                        SymptomCard(
+                        OptionCard(
                           image: "assets/images/icon2.png",
                           title: "RÉFÉRENTIEL\n DES Procédures",
                           onTap: () {

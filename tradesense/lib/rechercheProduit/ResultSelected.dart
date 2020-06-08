@@ -1,27 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tradesense/constant.dart';
 import 'package:tradesense/procedure/DetailsProc.dart';
-import 'package:tradesense/widget/HeaderListeRecherche.dart';
+import 'package:tradesense/widget/TitleHeader.dart';
 
-class ResultSelected extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'TradeSense',
-      theme: ThemeData(
-          scaffoldBackgroundColor: kBackgroundColor,
-          fontFamily: "Poppins",
-          textTheme: TextTheme(
-            body1: TextStyle(color: kBodyTextColor),
-          )),
-      home: ResultSelectedScreen(),
-    );
-  }
-}
+
 
 class ResultSelectedScreen extends StatefulWidget {
+
+  final String titre;
+
+  const ResultSelectedScreen({Key key, this.titre}) : super(key: key);
   @override
   _ResultSelectedScreenState createState() => _ResultSelectedScreenState();
 }
@@ -55,8 +42,8 @@ class _ResultSelectedScreenState extends State<ResultSelectedScreen> {
         controller: controller,
         child: Column(
           children: <Widget>[
-            HeaderListeRecherche(
-              regime: "procédure",
+            TitleHeader(
+              titre: widget.titre,
               offset: offset,
               color1: 0xFF36C12C,
               color2: 0xFF000000,
@@ -81,7 +68,7 @@ class _ResultSelectedScreenState extends State<ResultSelectedScreen> {
                                   zone: "MAROC",
                                   desc:
                                       "Le statut d'OEA vise à « labéliser » les entreprises sûres et fiables qui présentent d’indéniables garanties en matière de transparence, de solidité financière et de sécurité en vue de leur offrir un package d’avantages dans leurs relations avec l’administration douanière.",
-                                  etablisement: "Merci de consulter les étapes pour voir les établissements correspondants",
+                                  //etablisement: "Merci de consulter les étapes pour voir les établissements correspondants",
                                   
                                 )),
                       );

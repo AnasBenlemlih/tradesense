@@ -1,121 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tradesense/constant.dart';
-import 'package:tradesense/widget/my_header.dart';
 
-class InfoScreen extends StatefulWidget {
-  @override
-  _InfoScreenState createState() => _InfoScreenState();
-}
 
-class _InfoScreenState extends State<InfoScreen> {
-  final controller = ScrollController();
-  double offset = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    controller.addListener(onScroll);
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  void onScroll() {
-    setState(() {
-      offset = (controller.hasClients) ? controller.offset : 0;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        controller: controller,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            MyHeader(
-              image: "assets/icons/coronadr.svg",
-              textTop: "Get to know",
-              textBottom: "About Covid-19.",
-              offset: offset,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Symptoms",
-                    style: kTitleTextstyle,
-                  ),
-                  SizedBox(height: 20),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        SymptomCard(
-                          image: "assets/images/headache.png",
-                          title: "Headache",
-                          isActive: true,
-                        ),
-                        SymptomCard(
-                          image: "assets/images/caugh.png",
-                          title: "Caugh",
-                        ),
-                        SymptomCard(
-                          image: "assets/images/fever.png",
-                          title: "Fever",
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text("Prevention", style: kTitleTextstyle),
-                  SizedBox(height: 20),
-                  PreventCard(
-                    text:
-                        "Since the start of the coronavirus outbreak some places have fully embraced wearing facemasks",
-                    image: "assets/images/wear_mask.png",
-                    title: "Wear face mask",
-                  ),
-                  PreventCard(
-                    text:
-                        "Since the start of the coronavirus outbreak some places have fully embraced wearing facemasks",
-                    image: "assets/images/wash_hands.png",
-                    title: "Wash your hands",
-                  ),
-                  SizedBox(height: 50),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class PreventCard extends StatelessWidget {
+// la carte de l'élément accord commercial
+class AccordCard extends StatelessWidget {
   final String image;
   final String title;
-  final String text;
+  final String type;
   final String dsignature;
   final String dentre;
   final String partiesCons;
-  const PreventCard({
+  final Function onTap;
+  const AccordCard({
     Key key,
     this.image,
     this.title,
-    this.text,
+    this.type,
     this.dentre,
     this.dsignature,
-    this.partiesCons,
+    this.partiesCons, this.onTap,
   }) : super(key: key);
 
   @override
@@ -123,12 +27,12 @@ class PreventCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 0),
       child: SizedBox(
-        height: 176,
+        height: 200,
         child: Stack(
           alignment: Alignment.centerLeft,
           children: <Widget>[
             Container(
-              height: 156,
+              height: 200,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -144,14 +48,14 @@ class PreventCard extends StatelessWidget {
             ),
             Positioned(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                height: 186,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                height: 230,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      text,
+                      type,
                       style: kTitreTextstyle.copyWith(),
                     ),
                     SizedBox(height: 5),
@@ -163,24 +67,46 @@ class PreventCard extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                    Text((() {
+                    Text(
+                      ((               
+                  ) 
+                    {
                       if (partiesCons != null) {
                         return "Parties contractantes : ${this.partiesCons}";
                       }
-
                       return "";
+                    })()),
+                     Text(
+                      ((               
+                  ) 
+                    {
+                      if (dsignature != null) {
+                        return "Date de signature: ${this.partiesCons}";
+                      }
+                      return "Date de signature : ";
                     })()),
                     Text((() {
-                      if (dsignature != null && dentre != null) {
-                        return "Date de signature : ${this.dsignature} \nDate d'entrée en vigueur : ${this.dentre}";
+                      if (dentre != null) {
+                        return "Date d'entrée en vigueur : ${this.dentre}";
                       }
 
-                      return "";
+                      return "Date d'entrée en viguer : ";
                     })()),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: SvgPicture.asset("assets/icons/forward.svg"),
-                    ),
+                       Align(
+                    alignment: Alignment.bottomRight,
+                    child: RaisedButton(
+                      elevation: 0.0,
+                      child:SvgPicture.asset(
+                      "assets/icons/forward.svg",
+                      width: 10.0,
+                      color: Colors.indigo,
+                      
+                    ), 
+                    onPressed: onTap,
+                          color: Colors.white,
+                    ),   
+                  ),
+                    
                   ],
                 ),
               ),
@@ -192,13 +118,14 @@ class PreventCard extends StatelessWidget {
   }
 }
 
-class SymptomCard extends StatelessWidget {
+// la carte d'option dans l'accueil 
+class OptionCard extends StatelessWidget {
   final String image;
   final String title;
   final bool isActive;
   final Function onTap;
 
-  const SymptomCard({
+  const OptionCard({
     Key key,
     this.image,
     this.title,
@@ -252,39 +179,33 @@ class SymptomCard extends StatelessWidget {
   }
 }
 
-class ProcPreventCard extends StatelessWidget {
-  final String image;
+
+//la carte d'élément procédure 
+class ProcedureCard extends StatelessWidget {
+  //final String image;
   final String title;
-  final String text;
-  final String dsignature;
-  final String dentre;
-  final String partiesCons;
+  final String zone;
+  final String regime;
   final Function onTap;
 
-  const ProcPreventCard({
+  const ProcedureCard({
     Key key,
-    this.image,
     this.title,
-    this.text,
-    this.dentre,
-    this.dsignature,
-    this.partiesCons,
-    this.onTap,
+    this.onTap, 
+    this.zone, this.regime, 
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      
       padding: const EdgeInsets.only(bottom: 0),
       child: SizedBox(
-        height: 146,
+        height: 176,
         child: Stack(
-          
           alignment: Alignment.centerLeft,
           children: <Widget>[
             Container(
-              height: 116,
+              height: 156,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -301,30 +222,48 @@ class ProcPreventCard extends StatelessWidget {
             Positioned(
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                height: 156,
+                height: 176,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                   
+                      //style: kTitreTextstyle.copyWith(),
+                    
+                     Text((() {
+                      if (regime != null) {
+                        return "${this.regime}";
+                      }
+                      return "-";
+                    })()),
                     SizedBox(height: 5),
                     Text(
                       title,
-                      maxLines: 3,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: kTitleTextstyle.copyWith(
                         fontSize: 16,
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text("Zone: Maroc"),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: SvgPicture.asset(
-                        "assets/icons/forward.svg",
-                        color: Colors.orange,
-                        
-                      ),
+                    Text(
+                    "Zone : ${this.zone}"
                     ),
+                    //Text(),
+                    Align(
+                    alignment: Alignment.bottomRight,
+                    child: RaisedButton(
+                      elevation: 0.0,
+                      child:SvgPicture.asset(
+                      "assets/icons/forward.svg",
+                      width: 10.0,
+                      color: Colors.orange,
+                      
+                    ), 
+                    onPressed: onTap,
+                          color: Colors.white,
+                    ),   
+                  ),
+                    
                   ],
                 ),
               ),
@@ -336,72 +275,167 @@ class ProcPreventCard extends StatelessWidget {
   }
 }
 
-class PreventCardd extends StatelessWidget {
-  final String image;
+// la carte d'élément mesures sanitaires et phytosanitaires
+class MesureCard extends StatelessWidget {
+  //final String image;
   final String title;
-  final String text;
-  const PreventCardd({
+  final String zone;
+  final String regime;
+  final String etablissement; 
+  final Function onTap;
+
+  const MesureCard({
     Key key,
-    this.image,
     this.title,
-    this.text,
+    this.onTap, 
+    this.zone, this.regime, this.etablissement, 
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 0),
       child: SizedBox(
-        height: 156,
+        height: 176,
         child: Stack(
           alignment: Alignment.centerLeft,
           children: <Widget>[
             Container(
-              height: 136,
+              height: 156,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40),
-                //la couleur du box qui contient l'option
+                borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    offset: Offset(3, 3),
-                    blurRadius: 10,
-                    color: Colors.grey,
+                    offset: Offset(0, 8),
+                    blurRadius: 24,
+                    color: kShadowColor,
                   ),
                 ],
               ),
-              child: Row(
-                children: <Widget>[
-                  Image.asset(image),
-                  Column(
-                    children: <Widget>[
-                      SizedBox(height: 30),
-                      Text(
-                        title,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
+            ),
+            Positioned(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                height: 176,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                   
+                      //style: kTitreTextstyle.copyWith(),
+                    
+                     Text((() {
+                      if (regime != null) {
+                        return "${this.regime}";
+                      }
+                      return "";
+                    })()),
+                    SizedBox(height: 5),
+                    Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: kTitleTextstyle.copyWith(
+                        fontSize: 16,
                       ),
-                      SizedBox(height: 10),
-                      Text(
-                        text,
-                        maxLines: 4,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
+                    ),
+                    Text(
+                      etablissement,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: kTitleTextstyle.copyWith(
+                        fontSize: 16,
                       ),
-                    ],
+                    ),
+                  
+                    Text(
+                    "Zone : ${this.zone}"
+                    ),
+                    //Text(),
+                    Align(
+                    alignment: Alignment.bottomRight,
+                    child: RaisedButton(
+                      elevation: 0.0,
+                      child:SvgPicture.asset(
+                      "assets/icons/forward.svg",
+                      width: 10.0,
+                      color: Colors.green,
+                      
+                    ), 
+                    onPressed: onTap,
+                          color: Colors.white,
+                    ),   
                   ),
-                  SizedBox(width: 60),
-                  FloatingActionButton(
-                    backgroundColor: Colors.amberAccent,
-                    onPressed: () {},
-                    //  tooltip: 'Increment',
-                    child: Icon(Icons.arrow_forward),
-                  ),
-                ],
+                    
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class DocumentCard extends StatelessWidget {
+  //final String image;
+  final String title;
+  final String description;
+
+
+  const DocumentCard({
+    Key key,
+    this.title,
+    this.description, 
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 0),
+      child: SizedBox(
+        height: 90,
+        child: Stack(
+          alignment: Alignment.centerLeft,
+          children: <Widget>[
+            Container(
+              height: 110,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white, 
+              ),
+            ),
+            Positioned(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[    
+                    Text(
+                      "À fournir"
+                    ),
+                    Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: kTitleTextstyle.copyWith(
+                        fontSize: 16,
+                      ),
+                    ),
+                 SizedBox(height: 5),
+                     Text((() {
+                      if (description != null) {
+                        return "${this.description}";
+                      }
+                      return "";
+                    })()),
+                  ],
+                ),
               ),
             ),
           ],

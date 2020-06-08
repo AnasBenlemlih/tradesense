@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tradesense/acceuil/acceuil.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
 import 'package:tradesense/widget/RechercheScreen.dart';
@@ -117,44 +118,92 @@ class _AccordsScreenState extends State<AccordsScreen> {
                   Text("Affichage de tout les éléments",
                       style: kTitleTextstyle),
                   SizedBox(height: 10),
-                  PreventCard(
-                    text: "INTERNATIONAL",
+                  AccordCard(
+                    type: "INTERNATIONAL",
                     image: "assets/images/wear_mask.png",
                     title: "SYSTÈME GÉNÉRALISÉ DE PRÉFÉRENCES",
                     dentre: "20/05/2020",
                     dsignature: "06/05/2012",
                     partiesCons: "Pays les moins avancés d'afrique",
+                     onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
                   ),
-                  PreventCard(
-                    text: "BILATÉRAL",
+                  AccordCard(
+                    type: "BILATÉRAL",
                     image: "assets/images/wash_hands.png",
                     title: "OFFRE MAROCAINE EN FAVEUR DES PMA D'AFRIQUE",
                     dentre: "07/07/2020",
                     dsignature: "06/03/2016",
+                     onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
                   ),
-                  PreventCard(
-                    text: "INTERNATIONAL",
+                  AccordCard(
+                    type: "INTERNATIONAL",
                     image: "assets/images/wear_mask.png",
                     title:
                         "ACCORD ENTRE L'UNION EUROPÉENNE (UE) ET LE ROYAUME DU MAROC RELATIF AUX MESURES DE LIBÉRALISATION RÉCIPROQUES EN MATIÈRE DE PRODUITS AGRICOLES, DE PRODUITS AGRICOLES TRANSFORMÉS, DE POISSONS ET DE PRODUITS DE LA PÊCHE",
                     dentre: "20/05/2020",
                     dsignature: "06/05/2012",
                     partiesCons: "Pays les moins avancés d'afrique",
+                     onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
                   ),
-                  PreventCard(
-                    text: "BILATÉRAL",
+                  AccordCard(
+                    type: "BILATÉRAL",
                     image: "assets/images/wash_hands.png",
                     title: "OFFRE MAROCAINE EN FAVEUR DES PMA D'AFRIQUE",
+                     onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
                   ),
-                  PreventCard(
-                    text: "INTERNATIONAL",
+                  AccordCard(
+                    type: "INTERNATIONAL",
                     image: "assets/images/wear_mask.png",
                     title: "SYSTÈME GÉNÉRALISÉ DE PRÉFÉRENCES",
+                     onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
                   ),
-                  PreventCard(
-                    text: "BILATÉRAL",
+                  AccordCard(
+                    type: "BILATÉRAL",
                     image: "assets/images/wash_hands.png",
                     title: "OFFRE MAROCAINE EN FAVEUR DES PMA D'AFRIQUE",
+                     onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
                   ),
                   SizedBox(height: 30),
                 ],

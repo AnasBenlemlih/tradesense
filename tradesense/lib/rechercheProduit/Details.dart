@@ -119,7 +119,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultSelected()),
+                  MaterialPageRoute(builder: (context) => ResultSelectedScreen()),
                 );
               },
             ),
@@ -133,7 +133,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultSelected()),
+                  MaterialPageRoute(builder: (context) => ResultSelectedScreen()),
                 );
               },
             ),
@@ -146,7 +146,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultSelected()),
+                  MaterialPageRoute(builder: (context) => ResultSelectedScreen()),
                 );
               },
             ),

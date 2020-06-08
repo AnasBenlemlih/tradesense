@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tradesense/acceuil/acceuil.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
 import 'package:tradesense/procedure/DetailsProc.dart';
@@ -107,34 +108,44 @@ class _ProcedureScreenState extends State<ProcedureScreen> {
                   Text("Affichage de tout les éléments",
                       style: kTitleTextstyle),
                   SizedBox(height: 10),
-                  ProcPreventCard(
-                    title: "CONTRÔLE À L’IMPORTATION DES PRODUITS INDUSTRIELS",
-                    partiesCons: "Pays les moins avancés d'afrique",
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => DetailsProc()),
-                      );
-                    },
-                  ),
-                  ProcPreventCard(
-                    title: "DÉPOSER LA DEMANDE D'ABONNEMENT AU SERVICE PORTNET",
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => DetailsProc()),
-                      );
-                    },
-                  ),
-                  ProcPreventCard(
+                    ProcedureCard(
                     title: "AUTORISER L'EMBARQUEMENT À L'EXPORTATION",
-                    partiesCons: "Pays les moins avancés d'afrique",
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => DetailsProc()),
-                      );
-                    },
+                    zone: "Maroc",
+                    onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
+                  ),
+                   ProcedureCard(
+                    title: "CONTRÔLE À L’IMPORTATION DES PRODUITS INDUSTRIELS",
+                    zone: "Maroc",
+                    regime: "import",
+                      onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
+                    
+                  ),
+                   ProcedureCard(
+                    title: "DÉPOSER LA DÉCLARATION DUM",
+                    zone: "Maroc",
+                      onTap:   () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           },
+                    
                   ),
                   SizedBox(height: 30),
                 ],
