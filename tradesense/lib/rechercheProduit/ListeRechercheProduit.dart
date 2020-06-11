@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tradesense/accords/ListeAccord.dart';
+import 'package:tradesense/barriereTechnique/ListeBarriere.dart';
 import 'package:tradesense/constant.dart';
-import 'package:tradesense/info_screen.dart';
+import 'package:tradesense/mesure_sanitaire/ListeMesures.dart';
+import 'package:tradesense/rechercheProduit/ResultSelected.dart';
 import 'package:tradesense/widget/HeaderListeRecherche.dart';
+import 'package:tradesense/procedure/ListeProc.dart';
 
 class ListeRechercheProduit extends StatelessWidget {
   // This widget is the root of your application.
@@ -62,28 +66,84 @@ class _ListeRechercheProduitScreenState
               pays: "AFRIQUE DU SUD ",
               produit: "ORANGE - 25178569",
               offset: offset,
-              color1: 0xFF36C12C,
-              color2: 0xFF000000,
+              color1: 0xFF4056C6,
+              color2: 0xFF4056C6,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 10),
-                  Text("Affichage de tout les éléments",
-                      style: kTitleTextstyle),
-                  SizedBox(height: 10),
-                  ProcPreventCard(
-                    title: "Accords commerciaux ",
+                  ListTile(
+                    title: Text('Accords commerciaux'),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: () { 
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListeAccord(
+                                   // on va ajouter d'autres paramètres après 
+                                   // des objets (les accords) dans le résultat de recherche 
+                            )),
+                      );
+                    },
                   ),
-                  ProcPreventCard(
-                    title: "Procédures ",
+                  ListTile(
+                    title: Text('Procédures'),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: () { 
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListeProc(
+                                   // on va ajouter d'autres paramètres après 
+                                   // exemple : des objets (les procédures) dans le résultat de recherche 
+                            )),
+                      );
+                    },
                   ),
-                  ProcPreventCard(
-                    title: "Mesures sanitaires et phytosanitaires  ",
+                  ListTile(
+                    title: Text('Mesures sanitaires et phytosanitaires'),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListeMesures(
+
+                              // reste d'autres paramètres à ajouter après
+                            )),
+                      );
+                    },
                   ),
-                  SizedBox(height: 30),
+                   ListTile(
+                    title: Text('Barrières techniques'),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                      onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListeBarrieres(
+                            )),
+                      );
+                    },
+
+                    
+                  ),
+                   ListTile(
+                    title: Text('Tarif douanier'),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                      onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ResultSelectedScreen(
+                              titre: "Tarif douanier",
+                            )),
+                      );
+                    },
+                   
+                  ),
                 ],
               ),
             )

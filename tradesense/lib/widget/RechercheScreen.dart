@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tradesense/accords/accords.dart';
-import 'package:tradesense/mesure_sanitaire/MesureSanintaire.dart';
+import 'package:tradesense/mesure_sanitaire/MesureSanitaire.dart';
 import 'package:tradesense/procedure/procedure.dart';
 import 'package:tradesense/rechercheProduit/ListeRechercheProduit.dart';
 

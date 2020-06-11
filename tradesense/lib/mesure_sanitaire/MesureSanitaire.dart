@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tradesense/acceuil/acceuil.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
 import 'package:tradesense/widget/RechercheScreen.dart';
@@ -49,7 +50,7 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
       offset = (controller.hasClients) ? controller.offset : 0;
     });
   }
-    final paysValues = ['pays 1', 'pays 2', 'pays 3'];
+    final paysValues = ['zone 1', 'zone 2', 'zone 3'];
     final regimeValues = ['IMPORT', 'EXPORT'];
     final etablisValues = ['Département de la santé (Direction du Médicament et de la Pharmacie)',
     'INSPECTEUR DES VEGETAUX AU POSTE FRONTIERE',
@@ -106,7 +107,6 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
                                   )
                                   ),
                             );
-                          
                           },
                           color: Colors.white,
                     ),
@@ -115,16 +115,47 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
                   Text("Affichage de tout les éléments",
                       style: kTitleTextstyle),
                   SizedBox(height: 10),
-                  ProcPreventCard(
+                  MesureCard(
                     title: "FOURNIR LA FACTURE DÛEMENT VISEE",
-                    partiesCons: "Pays les moins avancés d'afrique",
+                    etablissement: "Département de la santé (Direction du Médicament et de la Pharmacie)",
+                    regime: "import",
+                    zone: "Maroc",
+                    onTap:  () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           }, 
                   ),
-                  ProcPreventCard(
-                    title: "DÉPOSER LA DEMANDE D'ABONNEMENT AU SERVICE PORTNET",
+                 MesureCard(
+                    title: "FOURNIR UN AGREMENT POUR LES MEDICAMENTS",
+                    etablissement: "MINISTERE DE LA SANTE",
+                    regime: "import",
+                    zone: "Maroc",
+                    onTap:  () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           }, 
                   ),
-                  ProcPreventCard(
-                    title: "AUTORISER L'EMBARQUEMENT À L'EXPORTATION",
-                    partiesCons: "Pays les moins avancés d'afrique",
+                    MesureCard(
+                    title: "FOURNIR UN CERTIFICAT D'ENREGISTREMENT",
+                    etablissement: "MINISTERE DE LA SANTE",
+                    regime: "import",
+                    zone: "Maroc",
+                    onTap:  () {
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceuilScreen()
+                                  ),
+                            );
+                           }, 
                   ),
                   SizedBox(height: 30),
                 ],
