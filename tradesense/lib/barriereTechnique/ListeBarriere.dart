@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tradesense/mesure_sanitaire/DetailsMesure.dart';
 import 'package:tradesense/widget/TitleHeader.dart';
 
 import '../info_screen.dart';
@@ -14,6 +13,7 @@ class ListeBarrieres extends StatefulWidget {
 class _ListeProcState extends State<ListeBarrieres> {
   final controller = ScrollController();
   double offset = 0;
+  
 
   @override
   void initState() {
@@ -35,6 +35,7 @@ class _ListeProcState extends State<ListeBarrieres> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: SingleChildScrollView(
         controller: controller,
@@ -44,8 +45,8 @@ class _ListeProcState extends State<ListeBarrieres> {
               titre: "Barrières techniques",
               offset: offset,
               // à changer !!
-              color1: 0xFF36C12C,
-              color2: 0xFF000000,
+              color1: 0xFFD23669,
+              color2: 0xFFD23669,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
@@ -53,7 +54,7 @@ class _ListeProcState extends State<ListeBarrieres> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   MesureCard(
-                  
+                    
                     title: "Etiquetage des produits textiles et de l’habillement (Rèv) -09p.",
                     etablissement: "Ministere de I'lndustrie, de I'lnvestissement, du Commerce et de I'Economie Numerique",
                     zone: "Maroc",

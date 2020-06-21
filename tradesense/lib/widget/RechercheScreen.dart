@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tradesense/accords/accords.dart';
-import 'package:tradesense/mesure_sanitaire/MesureSanitaire.dart';
-import 'package:tradesense/procedure/procedure.dart';
+
 import 'package:tradesense/rechercheProduit/ListeRechercheProduit.dart';
 
 import '../CustomShapeClipper.dart';
@@ -58,43 +56,12 @@ class _RechercheScreenState extends State<RechercheScreen> {
                 children: <Widget>[
                 SizedBox(height: 10.0,),
                 Container(
-                  
                   alignment: Alignment.topLeft,
                   child:  IconButton(icon: Icon(Icons.arrow_back_ios), 
                    alignment: Alignment.topLeft,
                    color: Colors.white,
-                  onPressed:    () {
-                        switch (widget.previousScreen) {
-                          case 1:
-                          
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder:
-                                   (context) => AccordsScreen()
-                                  ),
-                            );
-                          
-                            break;
-                          case 2:
-                                 Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder:
-                                   (context) => MesureSanitaireScreen()
-                                  ),
-                            );
-                          break;
-                           case 3:
-                              Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder:
-                                   (context) => ProcedureScreen()
-                                  ),
-                            );
-                           break;
-                        }
+                  onPressed: () {
+                  Navigator.pop(context);
                   },
                          ), 
                 ),

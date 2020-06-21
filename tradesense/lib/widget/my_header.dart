@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tradesense/constant.dart';
-import 'package:tradesense/menu/menu.dart';
 
 class MyHeader extends StatefulWidget {
   final String image;
@@ -45,19 +44,7 @@ class _MyHeaderState extends State<MyHeader> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return MyDrawer();
-                    },
-                  ),
-                );
-              },
-              child: SvgPicture.asset("assets/icons/menu.svg"),
-            ),
+           
             SizedBox(height: 20),
             Expanded(
               child: Stack(

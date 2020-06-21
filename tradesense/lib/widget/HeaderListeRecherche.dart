@@ -29,7 +29,7 @@ class _HeaderListeRechercheState extends State<HeaderListeRecherche> {
     return ClipPath(
       clipper: ClipperListeRecherche(),
       child: Container(
-        padding: EdgeInsets.only(left: 40, top: 50, right: 10),
+        padding: EdgeInsets.only(left: 10, top: 30, right: 10),
         height: 250,
         width: double.infinity,
         decoration: BoxDecoration(
@@ -43,21 +43,9 @@ class _HeaderListeRechercheState extends State<HeaderListeRecherche> {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return MyDrawer();
-                    },
-                  ),
-                );
-              },
-              child: SvgPicture.asset("assets/icons/menu.svg"),
-            ),
+       
             SizedBox(
               height: 30,
             ),

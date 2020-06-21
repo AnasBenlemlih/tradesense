@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tradesense/acceuil/acceuil.dart';
 import 'package:tradesense/constant.dart';
-import 'package:tradesense/info_screen.dart';
 import 'package:tradesense/widget/TitleHeader.dart';
 
 class DetailsBarriere extends StatefulWidget {
@@ -64,14 +62,14 @@ class _DetailsProcScreenState extends State<DetailsBarriere> {
             TitleHeader(
               titre: widget.titre,
               offset: offset,
-              color1: 0xFFFF8748,
-              color2: 0xFFFF4848
+              color1: 0xFFD23669,
+              color2: 0xFFD23669
             ),
             SizedBox(height: 20.0),
             Text(
               'INFORMATIONS DE BASE',
               style: kHeadingTextStyle.copyWith(
-                color: Color(0xFFFF8748),
+                color: Color(0xFFD23669),
                 fontSize: 20.0,
               ),
             ),
@@ -88,7 +86,7 @@ class _DetailsProcScreenState extends State<DetailsBarriere> {
             Text(
               'DESCRIPTION',
               style: kHeadingTextStyle.copyWith(
-                color: Color(0xFFFF8748),
+                color: Color(0xFFD23669),
                 fontSize: 20.0,
               ),
             ),
@@ -98,7 +96,7 @@ class _DetailsProcScreenState extends State<DetailsBarriere> {
             Text(
               "INFORMATION DE L'ÉTABLISSEMENT",
               style: kHeadingTextStyle.copyWith(
-                color: Color(0xFFFF8748),
+                color: Color(0xFFD23669),
                 fontSize: 20.0,
               ),
             ),
@@ -106,7 +104,7 @@ class _DetailsProcScreenState extends State<DetailsBarriere> {
             Text(
                 '${widget.titreEtablisement}',
                 style: kHeadingTextStyle.copyWith(
-                color: Color(0xFFFF8748),
+                color: Color(0xFFD23669),
                 fontSize: 16.0,
                 
               ),
@@ -199,7 +197,7 @@ class _DetailsProcScreenState extends State<DetailsBarriere> {
             Text(
               "DOCUMENTS ET INFOMATIONS ASSOCIÉES",
               style: kHeadingTextStyle.copyWith(
-                color: Color(0xFFFF8748),
+                color: Color(0xFFD23669),
                 fontSize: 16.0,
               ),
             ),
