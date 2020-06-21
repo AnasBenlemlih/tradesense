@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../constant.dart';
-import '../menu/menu.dart';
 
 class TitleHeader extends StatefulWidget {
 final String titre;
 final String lien;
   final double offset;
   final int color2, color1;
+  final double size;
 
-  const TitleHeader({Key key, this.titre, this.offset, this.color2, this.color1, this.lien}) : super(key: key);
+  const TitleHeader({Key key, this.titre, this.offset, this.color2, this.color1, this.lien, this.size}) : super(key: key);
   @override
   _TitleHeaderState createState() => _TitleHeaderState();
 }
@@ -24,8 +23,11 @@ class _TitleHeaderState extends State<TitleHeader> {
     return ClipPath(
       clipper: ClipperListeRecherche(),
       child: Container(
-        padding: EdgeInsets.only(left: 40, top: 50, right: 10),
-        height: 250,
+        padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                   height:        
+             widget.size != null ?
+             widget.size
+             : 250 ,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -38,21 +40,17 @@ class _TitleHeaderState extends State<TitleHeader> {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return MyDrawer();
-                    },
-                  ),
-                );
-              },
-              child: SvgPicture.asset("assets/icons/menu.svg"),
-            ),
+           Container(
+                  alignment: Alignment.topLeft,
+                  child:  IconButton(icon: Icon(Icons.arrow_back_ios), 
+                   alignment: Alignment.topLeft,
+                   color: Colors.white,
+                  onPressed: () {
+                  Navigator.pop(context);
+                  },
+                         ), 
+                ),
             SizedBox(
               height: 30,
             ),

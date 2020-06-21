@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tradesense/menu/menu.dart';
+
 import 'package:tradesense/rechercheProduit/ListeRechercheProduit.dart';
 import 'shCodeDialog.dart';
 
@@ -28,25 +27,12 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
             clipper: CustomShapeClipper(),
             child: Container(
               padding: EdgeInsets.only(left: 20, right: 20),
-              height: 500.0,
+              height: 450.0,
               color: Color.fromRGBO(67, 90, 177, 1.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 30),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return MyDrawer();
-                          },
-                        ),
-                      );
-                    },
-                    child: SvgPicture.asset("assets/icons/menu.svg"),
-                  ),
+                //  SizedBox(height: 30), 
                   // Ce Container contient le logo
                   Container(
                       height: 70,
@@ -55,7 +41,7 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
                           image: AssetImage('assets/images/logo2.PNG'),
                         ),
                       )),
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
 
                   // Ce container contient le titre
                   Center(

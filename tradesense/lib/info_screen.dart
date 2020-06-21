@@ -282,13 +282,14 @@ class MesureCard extends StatelessWidget {
   final String zone;
   final String regime;
   final String etablissement; 
+  final int color;
   final Function onTap;
 
   const MesureCard({
     Key key,
     this.title,
     this.onTap, 
-    this.zone, this.regime, this.etablissement, 
+    this.zone, this.regime, this.etablissement, this.color, 
   }) : super(key: key);
 
   @override
@@ -361,7 +362,7 @@ class MesureCard extends StatelessWidget {
                       child:SvgPicture.asset(
                       "assets/icons/forward.svg",
                       width: 10.0,
-                      color: Colors.green,
+                      color: Colors.black,
                       
                     ), 
                     onPressed: onTap,

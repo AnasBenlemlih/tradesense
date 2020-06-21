@@ -3,7 +3,7 @@ import 'package:tradesense/accords/ListeAccord.dart';
 import 'package:tradesense/barriereTechnique/ListeBarriere.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/mesure_sanitaire/ListeMesures.dart';
-import 'package:tradesense/rechercheProduit/ResultSelected.dart';
+import 'package:tradesense/tarifDounanier/DetailsTarif.dart';
 import 'package:tradesense/widget/HeaderListeRecherche.dart';
 import 'package:tradesense/procedure/ListeProc.dart';
 
@@ -126,10 +126,7 @@ class _ListeRechercheProduitScreenState
                             builder: (context) => ListeBarrieres(
                             )),
                       );
-                    },
-
-                    
-                  ),
+                    },),
                    ListTile(
                     title: Text('Tarif douanier'),
                     trailing: Icon(Icons.keyboard_arrow_right),
@@ -137,8 +134,13 @@ class _ListeRechercheProduitScreenState
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ResultSelectedScreen(
-                              titre: "Tarif douanier",
+                            builder: (context) => DetailsTarif(
+                              listOfColumns: ["","Droits communs","Accord d\'association Maroc - Union Européenne"],
+                              listOfRows: [
+                            {"Name": "DI", "DC": "40 %", "AAMUE": "0 %"},
+                            {"Name": "TPI", "DC": "0,25 %", "AAMUE": "(*)"},
+                            {"Name": "TVA", "DC": "20 %", "AAMUE": "-"}, ],
+                              list: ["Name","DC","AAMUE"],
                             )),
                       );
                     },
