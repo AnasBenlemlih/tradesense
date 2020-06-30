@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tradesense/acceuil/topPart.dart';
 import 'package:tradesense/acceuil/topPartHome.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
@@ -57,6 +58,7 @@ class _AcceuilScreenState extends State<AcceuilScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false ,
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(67, 90, 177, 1.0),
         elevation: 0,
@@ -104,7 +106,8 @@ class _AcceuilScreenState extends State<AcceuilScreen> {
         controller: controller,
         child: Column(
           children: <Widget>[
-            HomeScreenTopPart(),
+           // HomeScreenTopPart(),
+           topPart(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
