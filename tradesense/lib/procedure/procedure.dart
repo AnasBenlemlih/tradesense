@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tradesense/acceuil/acceuil.dart';
+import 'package:tradesense/acceuil/Home.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
-import 'package:tradesense/procedure/DetailsProc.dart';
 import 'package:tradesense/widget/RechercheScreen.dart';
 import 'package:tradesense/widget/my_header.dart';
 
@@ -108,44 +107,36 @@ class _ProcedureScreenState extends State<ProcedureScreen> {
                   Text("Affichage de tout les éléments",
                       style: kTitleTextstyle),
                   SizedBox(height: 10),
-                    ProcedureCard(
+                  ProcedureCard(
                     title: "AUTORISER L'EMBARQUEMENT À L'EXPORTATION",
                     zone: "Maroc",
-                    onTap:   () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AcceuilScreen()
-                                  ),
-                            );
-                           },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                   ),
-                   ProcedureCard(
+                  ProcedureCard(
                     title: "CONTRÔLE À L’IMPORTATION DES PRODUITS INDUSTRIELS",
                     zone: "Maroc",
                     regime: "import",
-                      onTap:   () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AcceuilScreen()
-                                  ),
-                            );
-                           },
-                    
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                   ),
-                   ProcedureCard(
+                  ProcedureCard(
                     title: "DÉPOSER LA DÉCLARATION DUM",
                     zone: "Maroc",
-                      onTap:   () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AcceuilScreen()
-                                  ),
-                            );
-                           },
-                    
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                   ),
                   SizedBox(height: 30),
                 ],
