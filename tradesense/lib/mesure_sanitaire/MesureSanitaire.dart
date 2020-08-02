@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tradesense/acceuil/acceuil.dart';
+import 'package:tradesense/acceuil/Home.dart';
 import 'package:tradesense/constant.dart';
 import 'package:tradesense/info_screen.dart';
 import 'package:tradesense/widget/RechercheScreen.dart';
@@ -50,12 +50,15 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
       offset = (controller.hasClients) ? controller.offset : 0;
     });
   }
-    final paysValues = ['zone 1', 'zone 2', 'zone 3'];
-    final regimeValues = ['IMPORT', 'EXPORT'];
-    final etablisValues = ['Département de la santé (Direction du Médicament et de la Pharmacie)',
+
+  final paysValues = ['zone 1', 'zone 2', 'zone 3'];
+  final regimeValues = ['IMPORT', 'EXPORT'];
+  final etablisValues = [
+    'Département de la santé (Direction du Médicament et de la Pharmacie)',
     'INSPECTEUR DES VEGETAUX AU POSTE FRONTIERE',
     'MINISTERE DE LA SANTE',
-    'PAYS D\'EXPEDITION'];
+    'PAYS D\'EXPEDITION'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -81,81 +84,76 @@ class _MesureSanitaireScreenState extends State<MesureSanitaireScreen> {
                     alignment: Alignment.topRight,
                     child: RaisedButton(
                       elevation: 0.0,
-                      child:SvgPicture.asset(
-                      "assets/icons/search2.svg",
-                      width: 30.0,
-                      color: Colors.blueGrey,
-                      
-                    ), 
-                    onPressed: () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>RechercheScreen(
-                                    titre: "Accès au référentiel de mesures sanitaires et phytosanitaires",
-                                    themeColor: Color.fromRGBO(44, 159, 36, 1.0),
-                                    rechercheHintText: "Chercher une mesures sanitaires et phytosanitaires",
+                      child: SvgPicture.asset(
+                        "assets/icons/search2.svg",
+                        width: 30.0,
+                        color: Colors.blueGrey,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RechercheScreen(
+                                    titre:
+                                        "Accès au référentiel de mesures sanitaires et phytosanitaires",
+                                    themeColor:
+                                        Color.fromRGBO(44, 159, 36, 1.0),
+                                    rechercheHintText:
+                                        "Chercher une mesures sanitaires et phytosanitaires",
                                     hintTextLeft: "Pays",
                                     textFieldLeftValues: paysValues,
-                                     hintTextRight: "Régime",
+                                    hintTextRight: "Régime",
                                     textFieldRightValues: regimeValues,
                                     hintTextBottom: "Établissement",
                                     textFieldBottomValues: etablisValues,
                                     textFieldBottomIsShown: true,
-                        // j'ai donnée le numéro 2 pour le screen des mesures sanitaires (aléatoirement)
+                                    // j'ai donnée le numéro 2 pour le screen des mesures sanitaires (aléatoirement)
                                     previousScreen: 2,
-                                  )
-                                  ),
-                            );
-                          },
-                          color: Colors.white,
+                                  )),
+                        );
+                      },
+                      color: Colors.white,
                     ),
-                    
                   ),
                   Text("Affichage de tout les éléments",
                       style: kTitleTextstyle),
                   SizedBox(height: 10),
                   MesureCard(
                     title: "FOURNIR LA FACTURE DÛEMENT VISEE",
-                    etablissement: "Département de la santé (Direction du Médicament et de la Pharmacie)",
+                    etablissement:
+                        "Département de la santé (Direction du Médicament et de la Pharmacie)",
                     regime: "import",
                     zone: "Maroc",
-                    onTap:  () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AcceuilScreen()
-                                  ),
-                            );
-                           }, 
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                   ),
-                 MesureCard(
+                  MesureCard(
                     title: "FOURNIR UN AGREMENT POUR LES MEDICAMENTS",
                     etablissement: "MINISTERE DE LA SANTE",
                     regime: "import",
                     zone: "Maroc",
-                    onTap:  () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AcceuilScreen()
-                                  ),
-                            );
-                           }, 
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                   ),
-                    MesureCard(
+                  MesureCard(
                     title: "FOURNIR UN CERTIFICAT D'ENREGISTREMENT",
                     etablissement: "MINISTERE DE LA SANTE",
                     regime: "import",
                     zone: "Maroc",
-                    onTap:  () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AcceuilScreen()
-                                  ),
-                            );
-                           }, 
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                   ),
                   SizedBox(height: 30),
                 ],

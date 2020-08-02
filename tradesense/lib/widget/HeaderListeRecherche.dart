@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tradesense/constant.dart';
-import 'package:tradesense/menu/menu.dart';
 
 class HeaderListeRecherche extends StatefulWidget {
   final String regime;
@@ -45,7 +43,6 @@ class _HeaderListeRechercheState extends State<HeaderListeRecherche> {
         child: Column(
           //crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-       
             SizedBox(
               height: 30,
             ),
@@ -53,15 +50,12 @@ class _HeaderListeRechercheState extends State<HeaderListeRecherche> {
               child: Stack(
                 children: <Widget>[
                   Positioned(
-                    
                     child: Text(
                       "${widget.regime} DEPUIS ${widget.pays} AU MAROC ",
                       style: kHeadingTextStyle.copyWith(
                         color: Colors.white,
                         fontSize: 26.0,
-                        
                       ),
-                      
                     ),
                   ),
                   Positioned(
