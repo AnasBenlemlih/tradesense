@@ -10,7 +10,4 @@ class Pays {
       name: json["name"] as String,
     );
   }
-  String getName() {
-    return name;
-  }
 }

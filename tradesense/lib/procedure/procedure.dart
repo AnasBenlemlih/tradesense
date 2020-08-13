@@ -96,8 +96,6 @@ class _ProcedureScreenState extends State<ProcedureScreen> {
                                     hintTextRight: "Régime",
                                     textFieldRightValues: regimeValues,
                                     textFieldBottomIsShown: false,
-                                    // j'ai donnée le numéro 3 pour le screen des procédures(aléatoirement)
-                                    previousScreen: 3,
                                   )),
                         );
                       },
@@ -130,6 +128,48 @@ class _ProcedureScreenState extends State<ProcedureScreen> {
                   ),
                   ProcedureCard(
                     title: "DÉPOSER LA DÉCLARATION DUM",
+                    zone: "Maroc",
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
+                  ),
+                  ProcedureCard(
+                    title: "DÉPOSER LA DEMANDE D'ABONNEMENT AU SERVICE PORTNET",
+                    zone: "Maroc",
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
+                  ),
+                  ProcedureCard(
+                    title: "DÉPOSER LA DEMANDE D'ABONNEMENT AU SYSTÈME BADR",
+                    zone: "Maroc",
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
+                  ),
+                  ProcedureCard(
+                    title:
+                        "DÉPOSER PHYSIQUEMENT LA DÉCLARATION EN DÉTAIL ET DES DOCUMENTS ANNEXES",
+                    zone: "Maroc",
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
+                  ),
+                  ProcedureCard(
+                    title:
+                        "DÉPOSER PHYSIQUEMENT LA DUM AUPRÈS DU BUREAU DOUANIER D’IMPORTATION",
                     zone: "Maroc",
                     onTap: () {
                       Navigator.push(

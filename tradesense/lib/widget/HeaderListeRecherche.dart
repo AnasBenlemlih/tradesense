@@ -51,7 +51,7 @@ class _HeaderListeRechercheState extends State<HeaderListeRecherche> {
                 children: <Widget>[
                   Positioned(
                     child: Text(
-                      "${widget.regime} DEPUIS ${widget.pays} AU MAROC ",
+                      "${widget.regime} depuis ${widget.pays} au Maroc ",
                       style: kHeadingTextStyle.copyWith(
                         color: Colors.white,
                         fontSize: 26.0,
