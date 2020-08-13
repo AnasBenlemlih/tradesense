@@ -54,27 +54,7 @@ class MyDrawer extends StatelessWidget {
               MaterialPageRoute(builder: (context) => HomeScreen()),
             );
           }),
-          CustomListTitle(Icons.healing, 'Mesure Sanitaire', () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MesureSanitaire()),
-            );
-          }),
-          CustomListTitle(Icons.pan_tool, 'ACCORDS COMMERCIAUX', () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Accords()),
-            );
-          }),
-          CustomListTitle(Icons.polymer, 'PROCÉDURES', () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Procedure()),
-            );
-          }),
           CustomListTitle(Icons.history, 'Accualité', () => {}),
-          CustomListTitle(Icons.perm_media, 'Media', () => {}),
-          CustomListTitle(Icons.exit_to_app, 'Quitter', () => {})
         ],
       ),
     ));

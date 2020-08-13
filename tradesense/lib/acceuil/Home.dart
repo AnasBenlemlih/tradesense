@@ -11,7 +11,7 @@ import 'package:tradesense/menu/menu.dart';
 import 'package:tradesense/mesure_sanitaire/MesureSanitaire.dart';
 import 'package:tradesense/accords/accords.dart';
 import 'package:tradesense/procedure/procedure.dart';
-import 'package:tradesense/rechercheProduit/ListeRechercheProduit.dart';
+import 'package:tradesense/rechercheProduit/ResultatRechProd.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -42,12 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
   static List<String> paysNames = new List<String>();
   var currentSelectedValue3;
   List<String> produitValues = [
-    'produit 1',
-    'produit 2',
-    'produit 3',
-    'produit 4',
-    'produit 5',
-    'produit 6'
+    '1001910020 ---- froment(blé) tendre',
+    '0812100000 ---- cerises',
+    '8518902000 ---- d\'écouteurs de téléphonie',
+    '1806201000 ---- Chocolat et autres préparations à base de cacao d\'un poids supérieur à 2 kg et inférieur à 4,5 kg'
+        '0901120000 ---- Décaféiné - café torrefié',
+    '0902100000 ---- thé vert (non fermenté) présenté en embballages immédiats d\'un conteneur n\'excédant pas 3kg',
   ];
   final paysSelected = TextEditingController();
   String countrySelect = "";
@@ -58,10 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
   static List<Regime> regimes = new List<Regime>();
   static List<String> regimesNames = ["IMPORT", "EXPORT"];
   var selectRegime;
-  String selectProduit;
-  Map<String, String> r =
-      Map.fromIterable(regimes, key: (v) => v.id, value: (v) => v.name);
 
+  String selectProduit;
+  bool isButtonActive;
 // Cette fonction permet de charger les pays du site et les placer dans une liste des objets Pays
   static List<Pays> loadPays(String jsonString) {
     final parsed = json.decode(jsonString).cast<Map<String, dynamic>>();
@@ -71,8 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
 // Cette fonction permet d'extraire les données
 // charger les Pays et les régimes et le produits
   Future getData() async {
-    //  http.Response response1 =
-    // await http.get("https://dev.tradesense.ma/api/tp/ps/1.0.0/regimes");
+    // http.Response response1 = await http.get(
+    // "https://dev.tradesense.ma/api/tp/ps/1.0.0/products/${this.id1}/${this.id2}/${this.id3}");
     http.Response response2 = await http
         .get("https://dev.tradesense.ma/api/tp/ps/1.0.0/zones?sort=%2Bname");
 
@@ -82,7 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
       pays.forEach((element) {
         paysNames.add(element.name);
       });
-
       print('Pays : ${paysNames.length}');
     } else {
       print("something wrong");
@@ -157,12 +155,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(height: 10),
-
                   // on va effectuer la recherche produit dans un formulaire
-                  // le formulaire est le widget appelé Form
 
-                  Form(
-                      child: Column(
+                  Column(
                     children: <Widget>[
                       // Ce Container contient le champs régime
 
@@ -222,9 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           items: paysNames,
                         ),
                       ),
-
                       // Ce container contient le champ de saisie du produit
-
                       Container(
                         margin: EdgeInsets.all(15),
                         padding: EdgeInsets.all(0),
@@ -243,10 +236,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           items: produitValues,
                         ),
                       ),
-
                       // Ce container contient le boutton affiche une dialog contient les informations
                       // du code Sh des produits
-
                       Container(
                         alignment: Alignment.centerRight,
                         child: FlatButton(
@@ -280,8 +271,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      //SizedBox(height: 7),
-                      //Cette row contient le boutton recherche
 
                       Row(
                         children: <Widget>[
@@ -291,14 +280,32 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 40.0,
                               child: RaisedButton(
                                 elevation: 5.0,
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ListeRechercheProduit()),
-                                  );
-                                },
+                                onPressed: selectRegime == null ||
+                                        selectPays == null ||
+                                        selectProduit == null
+                                    ? null
+                                    : () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ResultRechProd(
+                                                    regimeId:
+                                                        selectRegime == "IMPORT"
+                                                            ? "1"
+                                                            : "2",
+                                                    paysId: pays
+                                                        .firstWhere((element) =>
+                                                            element.name ==
+                                                            selectPays)
+                                                        .id,
+                                                    produitId: selectProduit,
+                                                    regimeName: selectRegime,
+                                                    paysName: selectPays,
+                                                    produitName: selectProduit,
+                                                  )),
+                                        );
+                                      },
                                 padding: EdgeInsets.all(5.0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50.0),
@@ -321,7 +328,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(height: 30.0),
                     ],
-                  )),
+                  ),
                 ],
               ),
             ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tradesense/constant.dart';
 
-
 // la carte de l'élément accord commercial
 class AccordCard extends StatelessWidget {
   final String image;
@@ -19,7 +18,8 @@ class AccordCard extends StatelessWidget {
     this.type,
     this.dentre,
     this.dsignature,
-    this.partiesCons, this.onTap,
+    this.partiesCons,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -67,46 +67,38 @@ class AccordCard extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                    Text(
-                      ((               
-                  ) 
-                    {
+                    Text((() {
                       if (partiesCons != null) {
                         return "Parties contractantes : ${this.partiesCons}";
                       }
-                      return "";
+                      return "-";
                     })()),
-                     Text(
-                      ((               
-                  ) 
-                    {
+                    Text((() {
                       if (dsignature != null) {
-                        return "Date de signature: ${this.partiesCons}";
+                        return "Date de signature: ${this.dsignature}";
                       }
-                      return "Date de signature : ";
+                      return "Date de signature : - ";
                     })()),
                     Text((() {
                       if (dentre != null) {
                         return "Date d'entrée en vigueur : ${this.dentre}";
                       }
 
-                      return "Date d'entrée en viguer : ";
+                      return "Date d'entrée en viguer : -";
                     })()),
-                       Align(
-                    alignment: Alignment.bottomRight,
-                    child: RaisedButton(
-                      elevation: 0.0,
-                      child:SvgPicture.asset(
-                      "assets/icons/forward.svg",
-                      width: 10.0,
-                      color: Colors.indigo,
-                      
-                    ), 
-                    onPressed: onTap,
-                          color: Colors.white,
-                    ),   
-                  ),
-                    
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: RaisedButton(
+                        elevation: 0.0,
+                        child: SvgPicture.asset(
+                          "assets/icons/forward.svg",
+                          width: 10.0,
+                          color: Colors.indigo,
+                        ),
+                        onPressed: onTap,
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -118,7 +110,7 @@ class AccordCard extends StatelessWidget {
   }
 }
 
-// la carte d'option dans l'accueil 
+// la carte d'option dans l'accueil
 class OptionCard extends StatelessWidget {
   final String image;
   final String title;
@@ -138,9 +130,9 @@ class OptionCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
       child: Container(
-        decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.grey))),
-        child: InkWell(
+          decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: Colors.grey))),
+          child: InkWell(
             splashColor: Color.fromRGBO(67, 90, 177, 1.0),
             onTap: onTap,
             child: Container(
@@ -164,7 +156,7 @@ class OptionCard extends StatelessWidget {
               ),
               child: Column(
                 children: <Widget>[
-                 Image.asset(image, height: 70),
+                  Image.asset(image, height: 70),
                   Text(
                     title,
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -173,14 +165,12 @@ class OptionCard extends StatelessWidget {
                 ],
               ),
             ),
-            )
-      ),
+          )),
     );
   }
 }
 
-
-//la carte d'élément procédure 
+//la carte d'élément procédure
 class ProcedureCard extends StatelessWidget {
   //final String image;
   final String title;
@@ -191,8 +181,9 @@ class ProcedureCard extends StatelessWidget {
   const ProcedureCard({
     Key key,
     this.title,
-    this.onTap, 
-    this.zone, this.regime, 
+    this.onTap,
+    this.zone,
+    this.regime,
   }) : super(key: key);
 
   @override
@@ -227,10 +218,9 @@ class ProcedureCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                   
-                      //style: kTitreTextstyle.copyWith(),
-                    
-                     Text((() {
+                    //style: kTitreTextstyle.copyWith(),
+
+                    Text((() {
                       if (regime != null) {
                         return "${this.regime}";
                       }
@@ -245,25 +235,21 @@ class ProcedureCard extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                    Text(
-                    "Zone : ${this.zone}"
-                    ),
+                    Text("Zone : ${this.zone}"),
                     //Text(),
                     Align(
-                    alignment: Alignment.bottomRight,
-                    child: RaisedButton(
-                      elevation: 0.0,
-                      child:SvgPicture.asset(
-                      "assets/icons/forward.svg",
-                      width: 10.0,
-                      color: Colors.orange,
-                      
-                    ), 
-                    onPressed: onTap,
-                          color: Colors.white,
-                    ),   
-                  ),
-                    
+                      alignment: Alignment.bottomRight,
+                      child: RaisedButton(
+                        elevation: 0.0,
+                        child: SvgPicture.asset(
+                          "assets/icons/forward.svg",
+                          width: 10.0,
+                          color: Colors.orange,
+                        ),
+                        onPressed: onTap,
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -281,15 +267,18 @@ class MesureCard extends StatelessWidget {
   final String title;
   final String zone;
   final String regime;
-  final String etablissement; 
+  final String etablissement;
   final int color;
   final Function onTap;
 
   const MesureCard({
     Key key,
     this.title,
-    this.onTap, 
-    this.zone, this.regime, this.etablissement, this.color, 
+    this.onTap,
+    this.zone,
+    this.regime,
+    this.etablissement,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -324,10 +313,9 @@ class MesureCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                   
-                      //style: kTitreTextstyle.copyWith(),
-                    
-                     Text((() {
+                    //style: kTitreTextstyle.copyWith(),
+
+                    Text((() {
                       if (regime != null) {
                         return "${this.regime}";
                       }
@@ -350,26 +338,22 @@ class MesureCard extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                  
-                    Text(
-                    "Zone : ${this.zone}"
-                    ),
+
+                    Text("Zone : ${this.zone}"),
                     //Text(),
                     Align(
-                    alignment: Alignment.bottomRight,
-                    child: RaisedButton(
-                      elevation: 0.0,
-                      child:SvgPicture.asset(
-                      "assets/icons/forward.svg",
-                      width: 10.0,
-                      color: Colors.black,
-                      
-                    ), 
-                    onPressed: onTap,
-                          color: Colors.white,
-                    ),   
-                  ),
-                    
+                      alignment: Alignment.bottomRight,
+                      child: RaisedButton(
+                        elevation: 0.0,
+                        child: SvgPicture.asset(
+                          "assets/icons/forward.svg",
+                          width: 10.0,
+                          color: Colors.black,
+                        ),
+                        onPressed: onTap,
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -380,16 +364,16 @@ class MesureCard extends StatelessWidget {
     );
   }
 }
+
 class DocumentCard extends StatelessWidget {
   //final String image;
   final String title;
   final String description;
 
-
   const DocumentCard({
     Key key,
     this.title,
-    this.description, 
+    this.description,
   }) : super(key: key);
 
   @override
@@ -406,7 +390,7 @@ class DocumentCard extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white, 
+                color: Colors.white,
               ),
             ),
             Positioned(
@@ -416,10 +400,8 @@ class DocumentCard extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[    
-                    Text(
-                      "À fournir"
-                    ),
+                  children: <Widget>[
+                    Text("À fournir"),
                     Text(
                       title,
                       maxLines: 2,
@@ -428,8 +410,8 @@ class DocumentCard extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                 SizedBox(height: 5),
-                     Text((() {
+                    SizedBox(height: 5),
+                    Text((() {
                       if (description != null) {
                         return "${this.description}";
                       }
